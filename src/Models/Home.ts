@@ -5,4 +5,5 @@ export interface IStateHome {
   perPage: number;
   allPosts: IPosts[];
   posts: IPosts[];
+  totalPages: number;
 }
