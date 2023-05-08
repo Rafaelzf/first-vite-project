@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import { Posts } from '../../Components';
+import { Buttons, Posts } from '../../Components';
 import useFetch from '../../Hooks/useFetch';
 import Loading from '../../Images/loading.gif';
 import { IStateHome } from '../../Models/Home';
@@ -56,7 +56,7 @@ const Home = (): ReactElement => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            This is a simple model blog {homeState.page}
+            This is a simple model blog
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Learn how to grow your business with our expert advice.
@@ -80,22 +80,10 @@ const Home = (): ReactElement => {
             </div>
             <div className="sm:ml-3 flex mt-20 justify-center gap-10">
               {homeState.page !== 0 && (
-                <button
-                  type="button"
-                  className="inline-flex items-center rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={BackPosts}
-                >
-                  Reduce posts
-                </button>
+                <Buttons pageLimit={true} hadleClick={BackPosts} />
               )}
               {homeState.totalPages !== homeState.page && (
-                <button
-                  type="button"
-                  className="inline-flex items-center rounded-md bg-lime-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={loadMorePosts}
-                >
-                  Load more posts
-                </button>
+                <Buttons pageLimit={false} hadleClick={loadMorePosts} />
               )}
             </div>
           </>

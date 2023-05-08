@@ -1,3 +1,4 @@
+import Buttons from './Buttons';
 import Posts from './Posts';
 
-export { Posts };
+export { Buttons, Posts };
